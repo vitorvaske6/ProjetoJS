@@ -18,3 +18,16 @@ npm install --save mongoose dotenv
 
 conectar ao db
 mongodb+srv://vitorvaske6:<password>@cluster0.b8tou.mongodb.net/test
+
+-- Mesma instância do shellcloudsdk
+iniciar cloud
+gcloud init
+
+conectar ao google cloud
+gcloud auth login
+
+setar na pasta do projeto
+gcloud config set project projetojs-308614
+
+deploy no projeto
+gcloud app deploy
