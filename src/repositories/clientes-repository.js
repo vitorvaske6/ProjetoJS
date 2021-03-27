@@ -6,6 +6,10 @@ exports.listClientes = async () => {
     return res;
 }
 
+exports.findClienteById = async (id) =>{
+    await Clientes.findById(id)
+}
+
 exports.createCliente = async data => {
     const cliente = new Clientes(data)
     await cliente.save()
