@@ -11,8 +11,19 @@ exports.listClientes = async (req, res) => {
     }
 }
 
+exports.findClienteById = async (req, res) => {
+    const id = req.body.id
+    try {
+        const data = await repository.findClienteById(id)
+        res.status(200).send(data)
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao carregar clientes.' })
+    }
+}
+
 exports.createCliente = async (req, res) => {
     const { errors } = validationResult(req)
+    const id = req.body.id
 
     if (errors.length > 0) {
         return res.status(400).send({ messae: errors })

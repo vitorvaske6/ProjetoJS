@@ -19,15 +19,7 @@ npm install --save mongoose dotenv
 conectar ao db
 mongodb+srv://vitorvaske6:<password>@cluster0.b8tou.mongodb.net/test
 
--- Mesma instância do shellcloudsdk
-iniciar cloud
-gcloud init
+instalar a dependencia para acessar por outro app
+npm install http express cors
 
-conectar ao google cloud
-gcloud auth login
-
-setar na pasta do projeto
-gcloud config set project projetojs-308614
-
-deploy no projeto
-gcloud app deploy
+cd documents/pastas/gitrepository/
