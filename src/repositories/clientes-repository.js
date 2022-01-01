@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Clientes = mongoose.model('Clientes')
 
 exports.listClientes = async () => {
-    const res = await Clientes.find({}, 'nome cnpj endereco -_id')
+    const res = await Clientes.find({}, '_id nome cnpj endereco')
     return res;
 }
 

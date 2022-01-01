@@ -22,4 +22,5 @@ mongodb+srv://vitorvaske6:<password>@cluster0.b8tou.mongodb.net/test
 instalar a dependencia para acessar por outro app
 npm install http express cors
 
-cd documents/pastas/gitrepository/
+dotenv
+DATABASE_CONNECTION_STRING=mongodb+srv://vitorvaske6:SENHA@cluster0.srtoa.mongodb.net/test
