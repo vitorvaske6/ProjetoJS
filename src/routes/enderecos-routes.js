@@ -6,6 +6,8 @@ const enderecosController = require('../controllers/enderecos-controller')
 
 
 router.get('/', enderecosController.listEnderecos)
+router.get('/cliente/:id', enderecosController.findEnderecoByIdCliente)
+router.get('/:_id', enderecosController.findEnderecoById)
 
 router.post('/', enderecosController.createEndereco)
 

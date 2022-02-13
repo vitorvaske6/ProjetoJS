@@ -2,8 +2,14 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const schema = new Schema({
-    cliente: {
-        type: String,
+    idEndereco:{
+        type: Number,
+        required: true,
+        unique:true, 
+        trim: true
+    },
+    idCliente: {
+        type: Number,
         required: true,
         trim: true
     },
@@ -37,7 +43,12 @@ const schema = new Schema({
         required: true,
         trim: true
     },
-    estado: {
+    idEstado: {
+        type: Number,
+        required: true,
+        trim: true
+    },
+    descricaoEstado: {
         type: String,
         required: true,
         trim: true

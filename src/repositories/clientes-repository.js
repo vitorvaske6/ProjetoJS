@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 const Clientes = mongoose.model('Clientes')
 
 exports.listClientes = async () => {
-    const res = await Clientes.find({}, 'nome cnpj endereco -_id')
+    const res = await Clientes.find({}, '_id idCliente nome cnpj')
     return res;
 }
 
 exports.findClienteById = async (id) =>{
-    await Clientes.findById(id)
+    const res = await Clientes.findById(id)
+    return res;
 }
 
 exports.createCliente = async data => {

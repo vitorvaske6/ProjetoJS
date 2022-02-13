@@ -12,12 +12,16 @@ exports.listClientes = async (req, res) => {
 }
 
 exports.findClienteById = async (req, res) => {
-    const id = req.body.id
+    const id = req.params._id
+    console.log(id)
     try {
         const data = await repository.findClienteById(id)
+        console.log(data)
         res.status(200).send(data)
+        
+        
     } catch (e) {
-        res.status(500).send({ message: 'Falha ao carregar clientes.' })
+        res.status(500).send({ message: 'Falha ao carregar cliente.' })
     }
 }
 
@@ -31,9 +35,9 @@ exports.createCliente = async (req, res) => {
 
     try {
         await repository.createCliente({
+            idCliente: req.body.idCliente,
             nome: req.body.nome,
             cnpj: req.body.cnpj,
-            endereco: req.body.endereco
         })
 
         res.status(201).send({ message: 'Cliente cadastrado com sucesso.' })

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Estados = mongoose.model('Estados')
 
 exports.listEstados = async () => {
-    const res = await Estados.find({}, '_id value descricao')
+    const res = await Estados.find({}, '_id idEstado descricao sigla')
     return res;
 }
 

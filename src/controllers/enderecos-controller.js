@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator')
 const repository = require('../repositories/enderecos-repository')
 
-exports.listEnderecos = async (req, res) => {
+exports.listEnderecos = async(req, res) => {
     try {
         const data = await repository.listEnderecos()
         res.status(200).send(data)
@@ -10,7 +10,39 @@ exports.listEnderecos = async (req, res) => {
     }
 }
 
-exports.createEndereco = async (req, res) => {
+exports.findEnderecoById = async(req, res) => {
+    const id = req.params._id
+    try {
+        const data = await repository.findEnderecoById(id)
+        console.log(data)
+        res.status(200).send(data)
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao carregar endereco.' })
+    }
+}
+
+exports.findEnderecoByIdCliente = async(req, res) => {
+    const id = req.params.id
+    console.log(id)
+    try {
+        const data = await repository.findEnderecoByIdCliente(id)
+        res.status(200).send(data)
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao carregar clientes.' })
+    }
+}
+
+exports.findClienteById = async(req, res) => {
+    const id = req.body.id
+    try {
+        const data = await repository.findClienteById(id)
+        res.status(200).send(data)
+    } catch (e) {
+        res.status(500).send({ message: 'Falha ao carregar clientes.' })
+    }
+}
+
+exports.createEndereco = async(req, res) => {
     const { errors } = validationResult(req)
 
     if (errors.length > 0) {
@@ -19,14 +51,16 @@ exports.createEndereco = async (req, res) => {
 
     try {
         await repository.createEndereco({
-            cliente: req.body.cliente,
+            idEndereco: req.body.idEndereco,
+            idCliente: req.body.idCliente,
             logradouro: req.body.logradouro,
             bairro: req.body.bairro,
             numero: req.body.numero,
             complemento: req.body.complemento,
             cidade: req.body.cidade,
             cep: req.body.cep,
-            estado: req.body.estado,
+            idEstado: req.body.idEstado,
+            descricaoEstado: req.body.descricaoEstado,
             pais: req.body.pais
         })
 
@@ -36,7 +70,7 @@ exports.createEndereco = async (req, res) => {
     }
 }
 
-exports.updateEndereco = async (req, res) => {
+exports.updateEndereco = async(req, res) => {
 
     const { errors } = validationResult(req)
 
@@ -54,7 +88,7 @@ exports.updateEndereco = async (req, res) => {
     }
 }
 
-exports.deleteEndereco = async (req, res) => {
+exports.deleteEndereco = async(req, res) => {
     try {
         await repository.deleteEndereco(req.params.id)
         res.status(200).send({
@@ -64,4 +98,3 @@ exports.deleteEndereco = async (req, res) => {
         res.status(500).send({ message: 'Falha ao excluir o endereco' })
     }
 }
-

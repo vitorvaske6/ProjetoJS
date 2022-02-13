@@ -19,8 +19,9 @@ exports.createEstado = async (req, res) => {
 
     try {
         await repository.createEstado({
-            value: req.body.value,
-            descricao: req.body.descricao
+            idEstado: req.body.idEstado,
+            descricao: req.body.descricao,
+            sigla: req.body.sigla
         })
 
         res.status(201).send({ message: 'Estado cadastrado com sucesso.' })

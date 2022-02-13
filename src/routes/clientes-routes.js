@@ -7,7 +7,7 @@ const clientesController = require('../controllers/clientes-controller')
 
 router.get('/', clientesController.listClientes)
 
-router.get('/:id', clientesController.findClienteById)
+router.get('/:_id', clientesController.findClienteById)
 
 router.post('/', [
     check('nome').isLength({ min: 4 }).withMessage("O nome precisa ter ao menos 4 letras"),

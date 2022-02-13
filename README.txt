@@ -16,8 +16,8 @@ npm run dev
 instalar dependências mongo
 npm install --save mongoose dotenv
 
-conectar ao db
-mongodb+srv://vitorvaske6:<password>@cluster0.b8tou.mongodb.net/test
+conectar ao db DOTENV
+DATABASE_CONNECTION_STRING=mongodb+srv://vitorvaske6:SENHA@cluster0.srtoa.mongodb.net/test
 
 instalar a dependencia para acessar por outro app
 npm install http express cors
